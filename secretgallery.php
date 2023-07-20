@@ -24,7 +24,9 @@ if (!isset($_SESSION['loggedin'])){
         </div>
         <?php
             $filename=$_FILES["name"]
+            if (isset($filename)){
             echo $filename;
+            }
         ?>
     </body>
 </html>
