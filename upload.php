@@ -1,4 +1,5 @@
 <?php
+include '/home/mabufudy/db.php';
 if (isset($filename)) {
     echo $filename;
 }
@@ -10,6 +11,10 @@ if (!empty($_FILES['filetoupload']['name'])) {
     if (in_array($file_type, $allowtypes)) {
         if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
             echo 'successfully uploaded file!';
+            $insert = $db->query("INSERT into images (filename,date) VALUES ($filename, NOW())");
+            if ($insert) {
+                echo 'the file has gone to the database';
+            }
         } else {
             echo 'failed to upload file :(';
         }
