@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION=false){
+if (!isset($_session['loggedin'])){
     header('Location: index.html');
 }
 ?>
