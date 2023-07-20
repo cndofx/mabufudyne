@@ -3,12 +3,8 @@ session_start();
 if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
 }
-
-
 ?>
-
 <?php if ($_SESSION['loggedin'] == TRUE) { ?>
-
     <html>
 
     <head>
@@ -26,9 +22,7 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="text-box">
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
-
     </body>
 
     </html>
-
 <?php } ?>
