@@ -6,3 +6,6 @@ h1{
     font-size:70px;
     font-weight:bold;
 }
+.text-box{
+    float:left;
+}

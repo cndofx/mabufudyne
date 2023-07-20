@@ -9,7 +9,15 @@ if (!isset($_SESSION['loggedin'])){
     <link rel="stylesheet" href="gallery.css">
     </head>
     <body>
-        <h1>hello</h1>
-        <p>welcome to the art gallery, enjoy your stay</p>
+        <h1>secret art gallery</h1>
+        <div class="file_upload">
+            <form action="upload.php" method="post">
+                <input type="file" name="filetoupload">
+                <input type="submit" name="submit">
+            </form>
+        </div>
+        <div class="text-box">
+            <p>welcome to the art gallery, enjoy your stay</p>
+        </div>
     </body>
 </html>
