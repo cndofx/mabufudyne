@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '/home/mabufudy/db.php';
 if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
 }
@@ -22,6 +23,15 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="text-box">
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
+        <?php
+        $query = "select * from images";
+        $result = $db->query($query);
+        while ($data = mysqli_fetch_assoc($result)) {
+            ?>
+            <img src="/<?php echo $data['filename']; ?>">
+            <?php
+        }
+        ?>
     </body>
 
     </html>
