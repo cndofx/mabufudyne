@@ -9,6 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 
     <head>
         <link rel="stylesheet" href="gallery.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
 
     <body>
