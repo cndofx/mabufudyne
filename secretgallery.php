@@ -23,7 +23,7 @@ if (!isset($_SESSION['loggedin'])){
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
         <?php
-            $filename=$_FILES["name"]
+            $filename=$_FILES["name"];
             if (isset($filename)){
             echo $filename;
             }
