@@ -10,7 +10,7 @@ if (!empty($_FILES['filetoupload']['name'])) {
     $allowtypes = array('jpg', 'png', 'jpeg', 'gif');
     if (in_array($file_type, $allowtypes)) {
         if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
-            $insert = $db->query("INSERT into images (filepath,date,tag) VALUES ('$filename', '$tag', NOW())");
+            $insert = $db->query("INSERT into images (filepath,tag,date) VALUES ('$filename', '$tag', NOW())");
             if ($insert) {
                 header('Location: secretgallery.php');
             } else {
