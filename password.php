@@ -7,7 +7,7 @@ $query = "SELECT password from users where username='$username'";
 $result = $db->query($query);
 $row = $result -> fetch_assoc();
 if(isset($row) && password_verify($password,$row['password'])){
-    regenerate_session_id();
+    session_regnerate_id();
     $_session['loggedin'] = true;
     header('Location: secretgallery.php');
 }
