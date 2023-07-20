@@ -1,16 +1,24 @@
 <?php
 session_start();
-if (!isset($_SESSION['loggedin'])){
+if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
+}
+
+print_r($_FILES);
+$filename = $_FILES['filetoupload']["name"];
+if (isset($filename)) {
+    echo $filename;
 }
 ?>
 
-<?php if($_SESSION['loggedin']==TRUE) { ?>
+<?php if ($_SESSION['loggedin'] == TRUE) { ?>
 
-<html>
+    <html>
+
     <head>
-    <link rel="stylesheet" href="gallery.css">
+        <link rel="stylesheet" href="gallery.css">
     </head>
+
     <body>
         <h1>secret art gallery</h1>
         <div class="file_upload">
@@ -22,14 +30,9 @@ if (!isset($_SESSION['loggedin'])){
         <div class="text-box">
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
-        <?php
-         print_r($_FILES);
-            $filename=$_FILES['filetoupload']["name"];
-            if (isset($filename)){
-            echo $filename;
-            }
-        ?>
+
     </body>
-</html>
+
+    </html>
 
 <?php } ?>
