@@ -39,7 +39,10 @@ img {
 }
 
 .wrapper {
-    /* max-width: 1000px; */
     max-width: min(100% - 40px, 1000px);
     margin-inline: auto;
+}
+
+.wrapper h1 {
+    text-align: center;
 }
