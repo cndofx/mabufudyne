@@ -2,7 +2,7 @@
 include '/home/mabufudy/db.php';
 $targetdirectory = "uploads/";
 $filename = $targetdirectory . basename($_FILES['filetoupload']['name']);
-if (isset($_POST['tag'])) {
+if (!empty($_POST['tag'])) {
     $tag = $_POST['tag'];
     $file_type = pathinfo($filename, PATHINFO_EXTENSION);
     if (!empty($_FILES['filetoupload']['name'])) {
