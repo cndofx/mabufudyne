@@ -4,6 +4,9 @@ if (!isset($_SESSION['loggedin'])){
     header('Location: index.html');
 }
 ?>
+
+<?php if($_SESSION['loggedin']==TRUE) { ?>
+
 <html>
     <head>
     <link rel="stylesheet" href="gallery.css">
@@ -21,3 +24,5 @@ if (!isset($_SESSION['loggedin'])){
         </div>
     </body>
 </html>
+
+<?php } ?>
