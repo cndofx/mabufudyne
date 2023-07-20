@@ -28,7 +28,7 @@ if (!isset($_SESSION['loggedin'])) {
         $result = $db->query($query);
         while ($data = mysqli_fetch_assoc($result)) {
             ?>
-            <img src="/<?php echo $data['filename']; ?>">
+            <img src="/<?php echo $data['filepath']; ?>">
             <?php
         }
         ?>
