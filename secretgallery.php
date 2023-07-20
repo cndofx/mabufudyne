@@ -15,7 +15,7 @@ if (!isset($_SESSION['loggedin'])){
         <h1>secret art gallery</h1>
         <div class="file_upload">
             <form method="post">
-                <input type="file" name="filetoupload">
+                <input type="file" name="filetoupload" enctype="multipart/form-data">
                 <input type="submit" name="submit">
             </form>
         </div>
