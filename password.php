@@ -8,7 +8,7 @@ $result = $db->query($query);
 $row = $result -> fetch_assoc();
 if(isset($row) && password_verify($password,$row['password'])){
     session_regenerate_id();
-    $_session['loggedin'] = true;
+    $_SESSION['loggedin'] = true;
     header('Location: secretgallery.php');
 }
 else{
