@@ -9,7 +9,7 @@ if (!empty($_FILES['filetoupload']['name'])) {
         if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
             $insert = $db->query("INSERT into images (filepath,date) VALUES ('$filename', NOW())");
             if ($insert) {
-                header('Location secretgallery.php');
+                header('Location: secretgallery.php');
             } else {
                 echo 'the file has not gone to the database';
             }
