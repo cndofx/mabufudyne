@@ -5,7 +5,11 @@ if (!isset($_SESSION['loggedin'])){
 }
 ?>
 <html>
+    <head>
+    <link rel="stylesheet" href="gallery.css">
+    </head>
     <body>
         <h1>hello</h1>
+        <p>welcome to the art gallery, enjoy your stay</p>
     </body>
 </html>
