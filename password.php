@@ -1,3 +1,3 @@
 <?php
-echo $post_['username'];
+echo $POST_['username'];
 ?>
