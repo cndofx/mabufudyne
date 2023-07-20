@@ -1,8 +1,7 @@
 <?php
-echo $_POST['username'];
 $servername = 'mabufudyne.com';
 $db_username = 'mabufudy_primary';
-$db_password = 'U7fBt*hUoytp@tcNu4TUgs!Hw'
+$db_password = 'U7fBt*hUoytp@tcNu4TUgs!Hw';
 $username = $_POST['username'];
 $password = $_POST['password'];
 $hashedpass = password_hash($password, PASSWORD_DEFAULT);
