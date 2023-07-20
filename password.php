@@ -7,7 +7,7 @@ $password = $_POST['password'];
 $db = new mysqli($servername, $db_username, $db_password);
 $query = "SELECT password from users where username='$username'";
 $result = $db->query($query);
-$row = $result -> fetch_assoc(mysqli_num);
+$row = $result -> fetch_assoc();
 if(password_verify($password,$row['password'])){
     echo 'congrats!';
 }
