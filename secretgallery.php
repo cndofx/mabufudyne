@@ -4,11 +4,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
 }
 
-print_r($_FILES);
-$filename = $_FILES['filetoupload']["name"];
-if (isset($filename)) {
-    echo $filename;
-}
+
 ?>
 
 <?php if ($_SESSION['loggedin'] == TRUE) { ?>
@@ -22,7 +18,7 @@ if (isset($filename)) {
     <body>
         <h1>secret art gallery</h1>
         <div class="file_upload">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="upload.php" enctype="multipart/form-data">
                 <input type="file" name="filetoupload">
                 <input type="submit" name="submit">
             </form>
