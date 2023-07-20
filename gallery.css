@@ -22,3 +22,13 @@ h1 {
 .explicit {
     clear: both;
 }
+
+img {
+    width: 100%;
+    margin: 40px;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin-inline: auto;
+}
