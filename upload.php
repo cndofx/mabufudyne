@@ -5,7 +5,7 @@ if (isset($filename)) {
 $targetdirectory = "uploads/";
 $filename = $targetdirectory . basename($_FILES['filetoupload']['name']);
 $file_type = pathinfo($filename, PATHINFO_EXTENSION);
-if (!empty($FILES_['filetoupload']['name'])) {
+if (!empty($_FILES['filetoupload']['name'])) {
     $allowtypes = array('jpg', 'png', 'jpeg', 'gif');
     if (in_array($file_type, $allowtypes)) {
         if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
