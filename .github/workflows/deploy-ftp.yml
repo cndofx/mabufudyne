@@ -28,3 +28,4 @@ jobs:
           server: ftp.mabufudyne.com
           username: mabufudy
           password: ${{ secrets.ftp_password }}
+          server-dir: public_html/
