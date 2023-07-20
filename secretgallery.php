@@ -14,7 +14,7 @@ if (!isset($_SESSION['loggedin'])){
     <body>
         <h1>secret art gallery</h1>
         <div class="file_upload">
-            <form action="upload.php" method="post">
+            <form method="post">
                 <input type="file" name="filetoupload">
                 <input type="submit" name="submit">
             </form>
@@ -22,6 +22,9 @@ if (!isset($_SESSION['loggedin'])){
         <div class="text-box">
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
+        <?php
+        echo 'hello';
+        ?>
     </body>
 </html>
 
