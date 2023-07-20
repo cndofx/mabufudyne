@@ -23,6 +23,7 @@ if (!isset($_SESSION['loggedin'])){
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
         <?php
+        _print_r($_FILES);
             $filename=$_FILES['filetoupload']["name"];
             if (isset($filename)){
             echo $filename;
