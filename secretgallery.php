@@ -28,8 +28,19 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="text-box">
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
+        <h1>explicit</h1>
         <?php
         $query = "select * from images where tag='explicit'";
+        $result = $db->query($query);
+        while ($data = mysqli_fetch_assoc($result)) {
+            ?>
+            <img src="/<?php echo $data['filepath']; ?>">
+            <?php
+        }
+        ?>
+        <h1>not explicit</h1>
+        <?php
+        $query = "select * from images where tag='not explicit'";
         $result = $db->query($query);
         while ($data = mysqli_fetch_assoc($result)) {
             ?>
