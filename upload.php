@@ -1,5 +1,4 @@
 <?php
-print_r($_FILES);
 if (isset($filename)) {
     echo $filename;
 }
@@ -17,6 +16,7 @@ if (!empty($FILES['filetoupload']['name'])) {
     } else {
         echo 'wrong type of file, dingus';
     }
+} else {
+    echo 'you have to upload a file';
 }
-
 ?>
