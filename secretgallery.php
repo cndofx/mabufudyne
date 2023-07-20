@@ -18,13 +18,18 @@ if (!isset($_SESSION['loggedin'])) {
             <form method="post" action="upload.php" enctype="multipart/form-data">
                 <input type="file" name="filetoupload">
                 <input type="submit" name="submit">
+                <select name="tag" for="tags" id="tags">
+                    <option value="">select</option>
+                    <option value="not explicit">not explicit</option>
+                    <option value="explicit">explicit</option>
+                </select>
             </form>
         </div>
         <div class="text-box">
             <p>welcome to the art gallery, enjoy your stay</p>
         </div>
         <?php
-        $query = "select * from images";
+        $query = "select * from images where tag='explicit'";
         $result = $db->query($query);
         while ($data = mysqli_fetch_assoc($result)) {
             ?>
