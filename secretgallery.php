@@ -18,7 +18,7 @@ if (!isset($_SESSION['loggedin'])) {
                 <h1>secret art gallery</h1>
                 <p>welcome to the art gallery, enjoy your stay</p>
             </div>
-            <form method="post" action="upload.php" enctype="multipart/form-data">
+            <form class="uploadform" method="post" action="upload.php" enctype="multipart/form-data">
                 <input type="file" name="filetoupload">
                 <select name="tag" for="tags" id="tags">
                     <option value="">select a tag</option>
