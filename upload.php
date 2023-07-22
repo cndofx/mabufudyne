@@ -15,8 +15,11 @@ if (!empty($tags)) {
                     $id = $db->query("SELECT id from images where filepath='$filename'");
                     $id_array = mysqli_fetch_assoc($id);
                     print_r($id_array);
-                    $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[0]','$tags[0]')");
-                    while ($insert_tags);
+                    $count=0;
+                    $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[id]','$tags[$count]')");
+                    while ($insert_tags);{
+                        $count++;
+                    }
                     header('Location: secretgallery.php');
                 } else {
                     echo 'the file has not gone to the database';
