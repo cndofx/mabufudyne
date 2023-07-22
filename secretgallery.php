@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '/home/mabufudy/db.php';
-if (!isset($_SESSION['loggedin'])) {
+if (!isset($_SESSION) || !isset($_SESSION['loggedin'])) {
     header('Location: gallery.html');
 }
 ?>
