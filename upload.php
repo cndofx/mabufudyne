@@ -12,7 +12,7 @@ if (!empty($tags)) {
             if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
                 $insert = $db->query("INSERT into images (filepath,date) VALUES ('$filename', NOW())");
                 if ($insert) {
-                    $image_result = $db->query("SELECT id from images where filepath='$filename'");
+                    $image_result = $db->query("SELECT imageid from images where filepath='$filename'");
                     $image_row = mysqli_fetch_assoc($image_result);
                     $image_id = $image_row['id'];
                     foreach ($tags as $tag) {
