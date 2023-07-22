@@ -2,7 +2,7 @@
 session_start();
 include '/home/mabufudy/db.php';
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.html');
+    header('Location: gallery.html');
 }
 ?>
 <?php if ($_SESSION['loggedin'] == TRUE) { ?>
