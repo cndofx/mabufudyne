@@ -4,6 +4,8 @@ $targetdirectory = "uploads/";
 $path_parts = pathinfo($_FILES['filetoupload']['name']);
 $file_type = $path_parts['extension'];
 $filename = $targetdirectory . $path_parts['filename'] . '_' . time() . '.' . $path_parts['extension'];
+$tags=explode(",",$_POST['tags']);
+print_r($tags);
 if (!empty($_POST['tag'])) {
     $tag = $_POST['tag'];
     if (!empty($_FILES['filetoupload']['name'])) {

@@ -20,11 +20,7 @@ if (!isset($_SESSION['loggedin'])) {
             </div>
             <form class="uploadform" method="post" action="upload.php" enctype="multipart/form-data">
                 <input type="file" name="filetoupload">
-                <select name="tag" for="tags" id="tags">
-                    <option value="">select a tag</option>
-                    <option value="not explicit">not explicit</option>
-                    <option value="explicit">explicit</option>
-                </select>
+                <input type="text" placeholder="tags, seperate by commas" name="tags">
                 <input type="submit" name="submit">
             </form>
         </header>
