@@ -1,6 +1,6 @@
 <?php
 include '/home/mabufudy/db.php';
-$searchtags=$_POST['searchtag'];
+$searchtags=$_POST['searchtags'];
 $sql="select images.filepath from tags inner join images on images.imageid = tags.imageid where tags.tag='$searchtags'";
 $result=$db->query($sql); 
 if (isset($result)){
