@@ -16,6 +16,7 @@ if (!empty($tags)) {
                     $image_row = mysqli_fetch_assoc($image_result);
                     $image_id = $image_row['id'];
                     foreach ($tags as $tag) {
+                        $tag = trim($tag);
                         $insert_success = $db->query("INSERT into tags (imageid,tag) VALUES ('$image_id','$tag')");
                         if ($insert_success) {
                             echo 'tag entry successful';
