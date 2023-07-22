@@ -25,30 +25,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
             </form>
         </header>
         <div class="wrapper">
-            <h1 class="explicit">explicit</h1>
-            <div class="image-columns">
-                <?php
-                $query = "select * from images where tag='explicit'";
-                $result = $db->query($query);
-                while ($data = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <img src="/<?php echo $data['filepath']; ?>">
-                    <?php
-                }
+            <?php
+            $query = "select filepath from images";
+            $result = $db->query($query);
+            while ($row = $result->fetch_assoc()) {
                 ?>
-            </div>
-            <h1>not explicit</h1>
-            <div class="image-columns">
+                <img src="/<?php echo $row['filepath']; ?>">
                 <?php
-                $query = "select * from images where tag='not explicit'";
-                $result = $db->query($query);
-                while ($data = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <img src="/<?php echo $data['filepath']; ?>">
-                    <?php
-                }
-                ?>
-            </div>
+            }
+            ?>
         </div>
     </body>
 
