@@ -10,3 +10,10 @@ while ($row=mysqli_fetch_assoc($result)){
         <?php
     }   
 ?>
+<html>
+    <head>
+    <link rel="stylesheet" href="gallery.css">
+    </head>
+    <body>
+    </body>
+</html>
