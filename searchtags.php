@@ -6,7 +6,7 @@ $sql="select images.filepath from tags inner join images on images.imageid = tag
 $result=$db->query($sql); 
 while ($row=mysqli_fetch_assoc($result)){
         ?>
-        <img src="/<?php echo $row['filepath'];?>"
+        <img src="/<?php echo $row['filepath'];?>">
         <?php
     }   
 ?>
