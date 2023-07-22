@@ -13,7 +13,9 @@ if (!empty($tags)) {
                 $insert = $db->query("INSERT into images (filepath,date) VALUES ('$filename', NOW())");
                 if ($insert) {
                     $id = $db->query("SELECT id from images where filepath='$filename'");
-                    $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id','$tags[0]')");
+                    $id_array = mysqli_fetch_assoc($id);
+                    print_r($id_array);
+                    $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[0]','$tags[0]')");
                     while ($insert_tags);
                     header('Location: secretgallery.php');
                 } else {
