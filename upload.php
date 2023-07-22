@@ -19,7 +19,6 @@ if (!empty($tags)) {
                         $tag = trim($tag);
                         $insert_success = $db->query("INSERT into tags (imageid,tag) VALUES ('$image_id','$tag')");
                         if ($insert_success) {
-                            echo 'tag entry successful';
                         } else {
                             echo 'tag entry failed';
                         }
