@@ -19,6 +19,9 @@ if (!empty($tags)) {
                         if ($insert_tags){
                             echo 'tag entry successful';
                         }
+                        else{
+                            echo 'tag entry failed';
+                        }
                     }
                     header('Location: secretgallery.php');
                 } else {
