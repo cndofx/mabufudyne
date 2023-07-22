@@ -1,11 +1,11 @@
 <?php
 session_start();
 include '/home/mabufudy/db.php';
-if (!isset($_SESSION) || !isset($_SESSION['loggedin'])) {
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
     header('Location: gallery.html');
 }
 ?>
-<?php if ($_SESSION['loggedin'] == TRUE) { ?>
+<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE) { ?>
 
     <head>
         <link rel="stylesheet" href="gallery.css">
