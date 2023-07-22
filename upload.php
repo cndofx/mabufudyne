@@ -12,7 +12,7 @@ if (!empty($tags)) {
             if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
                 $insert = $db->query("INSERT into images (filepath,tag,date) VALUES ('$filename', '$tag', NOW())");
                 if ($insert) {
-                    $id = db->query('SELECT id from images where filepath='$filename'')
+                    $id = db->query("SELECT id from images where filepath='$filename'")
                     $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id','$tags[0]')");
                     while ($insert_tags);
                     header('Location: secretgallery.php');
