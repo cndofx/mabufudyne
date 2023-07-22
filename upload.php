@@ -4,7 +4,7 @@ $targetdirectory = "uploads/";
 $path_parts = pathinfo($_FILES['filetoupload']['name']);
 $file_type = $path_parts['extension'];
 $filename = $targetdirectory . $path_parts['filename'] . '_' . time() . '.' . $path_parts['extension'];
-$tags=explode(",",$_POST['tags']);
+$tags = explode(",", $_POST['tags']);
 if (!empty($tags)) {
     if (!empty($_FILES['filetoupload']['name'])) {
         $allowtypes = array('jpg', 'png', 'jpeg', 'gif');
@@ -12,14 +12,14 @@ if (!empty($tags)) {
             if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
                 $insert = $db->query("INSERT into images (filepath,date) VALUES ('$filename', NOW())");
                 if ($insert) {
-                    $id = $db->query("SELECT id from images where filepath='$filename'");
-                    $id_array = mysqli_fetch_assoc($id);
-                    foreach($tags as $value){
-                        $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[id]','$value')");
-                        if ($insert_tags){
+                    $result = $db->query("SELECT id from images where filepath='$filename'");
+                    $row = mysqli_fetch_assoc($result);
+                    $id = $row['id'];
+                    foreach ($tags as $tag) {
+                        $insert_success = $db->query("INSERT into tags (id,tag) VALUES ('$id','$tag')");
+                        if ($insert_success) {
                             echo 'tag entry successful';
-                        }
-                        else{
+                        } else {
                             echo 'tag entry failed';
                         }
                     }
