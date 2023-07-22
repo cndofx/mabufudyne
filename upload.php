@@ -16,7 +16,7 @@ if (!empty($tags)) {
                     $id = $db->query("SELECT id from images where filepath='$filename'");
                     $id_array = mysqli_fetch_assoc($id);
                     print_r($id_array);
-                    for($x=0; $x<count($tags)-1; $x++;){
+                    for($x=0; $x<count($tags)-1; $x++){
                         $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[$x]','$tags[$value]')");
                         print_r($insert_tags);
                     }
