@@ -10,7 +10,7 @@ if (!empty($tags)) {
         $allowtypes = array('jpg', 'png', 'jpeg', 'gif');
         if (in_array($file_type, $allowtypes)) {
             if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
-                $insert = $db->query("INSERT into images (filepath,tag,date) VALUES ('$filename', '$tag', NOW())");
+                $insert = $db->query("INSERT into images (filepath,date) VALUES ('$filename', NOW())");
                 if ($insert) {
                     $id = db->query("SELECT id from images where filepath='$filename'");
                     $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id','$tags[0]')");
