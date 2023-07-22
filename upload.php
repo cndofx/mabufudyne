@@ -13,7 +13,7 @@ if (!empty($tags)) {
                 $insert = $db->query("INSERT into images (filepath,date) VALUES ('$filename', NOW())");
                 if ($insert) {
                     $image_result = $db->query("SELECT id from images where filepath='$filename'");
-                    $image_row = mysqli_fetch_assoc($result);
+                    $image_row = mysqli_fetch_assoc($image_result);
                     $image_id = $row['id'];
                     foreach ($tags as $tag) {
                         $insert_success = $db->query("INSERT into tags (imageid,tag) VALUES ('$image_id','$tag')");
