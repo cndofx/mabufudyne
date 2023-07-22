@@ -17,7 +17,7 @@ if (!empty($tags)) {
                     $id_array = mysqli_fetch_assoc($id);
                     print_r($id_array);
                     for($x=0; $x<count($tags)-1; $x++){
-                        $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[$x]','$tags[$value]')");
+                        $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[id]','$tags[$x]')");
                         print_r($insert_tags);
                     }
                     header('Location: secretgallery.php');
