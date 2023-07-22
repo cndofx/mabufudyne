@@ -5,15 +5,16 @@ $path_parts = pathinfo($_FILES['filetoupload']['name']);
 $file_type = $path_parts['extension'];
 $filename = $targetdirectory . $path_parts['filename'] . '_' . time() . '.' . $path_parts['extension'];
 $tags=explode(",",$_POST['tags']);
-print_r($tags);
-if (!empty($_POST['tag'])) {
-    $tag = $_POST['tag'];
+if (!empty($tags)) {
     if (!empty($_FILES['filetoupload']['name'])) {
         $allowtypes = array('jpg', 'png', 'jpeg', 'gif');
         if (in_array($file_type, $allowtypes)) {
             if (move_uploaded_file($_FILES['filetoupload']['tmp_name'], $filename)) {
                 $insert = $db->query("INSERT into images (filepath,tag,date) VALUES ('$filename', '$tag', NOW())");
                 if ($insert) {
+                    $id = db->query('SELECT id from images where filepath='$filename'')
+                    $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id','$tags[0]')");
+                    while ($insert_tags);
                     header('Location: secretgallery.php');
                 } else {
                     echo 'the file has not gone to the database';
