@@ -14,7 +14,7 @@ if (!empty($tags)) {
                 if ($insert) {
                     $image_result = $db->query("SELECT imageid from images where filepath='$filename'");
                     $image_row = mysqli_fetch_assoc($image_result);
-                    $image_id = $image_row['id'];
+                    $image_id = $image_row['imageid'];
                     foreach ($tags as $tag) {
                         $tag = trim($tag);
                         $insert_success = $db->query("INSERT into tags (imageid,tag) VALUES ('$image_id','$tag')");
