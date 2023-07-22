@@ -23,6 +23,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
                 <input type="text" placeholder="tags, seperate by commas" name="tags">
                 <input type="submit" name="submit">
             </form>
+            <form class="searchform" method="post" action="searchtags.php">
+                <input type="text" placeholder="search tags" name="searchtags">
+            </form>
         </header>
         <div class="wrapper">
             <div class="image-columns">
