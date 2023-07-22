@@ -5,7 +5,6 @@ $path_parts = pathinfo($_FILES['filetoupload']['name']);
 $file_type = $path_parts['extension'];
 $filename = $targetdirectory . $path_parts['filename'] . '_' . time() . '.' . $path_parts['extension'];
 $tags=explode(",",$_POST['tags']);
-print_r($tags);
 if (!empty($tags)) {
     if (!empty($_FILES['filetoupload']['name'])) {
         $allowtypes = array('jpg', 'png', 'jpeg', 'gif');
@@ -15,10 +14,8 @@ if (!empty($tags)) {
                 if ($insert) {
                     $id = $db->query("SELECT id from images where filepath='$filename'");
                     $id_array = mysqli_fetch_assoc($id);
-                    print_r($id_array);
-                    for($x=0; $x<count($tags)-1; $x++){
-                        $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[id]','$tags[$x]')");
-                        print_r($insert_tags);
+                    foreach($tags as $value){
+                        $insert_tags = $db->query("INSERT into tags (id,tag) VALUES ('$id_array[id]','$value')");
                     }
                     header('Location: secretgallery.php');
                 } else {
