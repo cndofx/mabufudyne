@@ -13,29 +13,29 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
     </head>
 
     <body>
-        <h1><a href="/secretgallery.php">go back</a></h1>
-        <?php
-        // $imageid = $_SERVER['PATH_INFO'];
-        // $imageid = str_replace('/', '', $imageid);
-        $imageid = $_GET['imageid'];
-        $query = "SELECT images.filepath, tags.tag, images.imageid 
-        FROM images
-        LEFT JOIN tags ON images.imageid=tags.imageid
-        WHERE images.imageid = '$imageid'";
-        $result = $db->query($query);
-        $row = $result->fetch_assoc();
-        if (isset($row['filepath'])) {
-            echo "<h1>Image ID: " . $imageid . "</h1>";
-            echo '<img src="/' . $row['filepath'] . '">';
-            if (isset($row['tag'])) {
-                echo $row['tag'];
+        <div class="wrapper">
+            <h1><a href="/secretgallery.php">go back</a></h1>
+            <?php
+            $imageid = $_GET['imageid'];
+            $query = "SELECT images.filepath, tags.tag, images.imageid 
+                        FROM images
+                        LEFT JOIN tags ON images.imageid=tags.imageid
+                        WHERE images.imageid = '$imageid'";
+            $result = $db->query($query);
+            $row = $result->fetch_assoc();
+            if (isset($row['filepath'])) {
+                echo "<h1>Image ID: " . $imageid . "</h1>";
+                echo '<img src="/' . $row['filepath'] . '">';
+                if (isset($row['tag'])) {
+                    echo $row['tag'];
+                }
+                while ($row = $result->fetch_assoc()) {
+                    echo $row['tag'];
+                }
+            } else {
+                echo "<h1>Image ID " . $imageid . " is invalid." . "</h1>";
             }
-            while ($row = $result->fetch_assoc()) {
-                echo $row['tag'];
-            }
-        } else {
-            echo "<h1>Image ID " . $imageid . " is invalid." . "</h1>";
-        }
-        ?>
+            ?>
+        </div>
     </body>
 <?php } ?>
