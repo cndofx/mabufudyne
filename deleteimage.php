@@ -13,9 +13,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
 	$row = $result->fetch_assoc();
 	if (isset($row['filepath'])) {
 		$path = $row['filepath'];
-		$path_parts = pathinfo($path);
-		echo 'image path: ' . $path;
-		echo 'filename: ' . $path_parts['basename'];
+		$parts = pathinfo($path);
+		$deletedpath = $parts['dirname'] . '\/deleted\/' . $parts['basename'];
+		echo 'image path: ' . $path . '\n';
+		echo 'filename: ' . $parts['basename'] . '\n';
+		echo 'deleted path: ' . $deletedpath . '\n';
+		// rename($path, $deletedpath);
 	}
 	// $query = "DELETE images, tags
 	// 	FROM images 
