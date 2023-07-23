@@ -26,6 +26,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         if (isset($row['filepath'])) {
             echo "<h1>Image ID: " . $imageid . "</h1>";
             echo '<img src="/' . $row['filepath'] . '">';
+			while($row = $result->fetch_assoc()){
+				echo $row['tag'];
+			}
         } else {
             echo "<h1>Image ID " . $imageid . " is invalid." . "</h1>";
         }
