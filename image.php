@@ -17,7 +17,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         <?php
         $imageid = $_SERVER['PATH_INFO'];
         $imageid = str_replace('/', '', $imageid);
-        $query = "SELECT filepath FROM images WHERE imageid = '$imageid'";
+        $query = "SELECT images.filepath, tags.tag, tags.imageid 
+        FROM images
+        INNER JOIN tags ON images.imageid=tags.imageid
+        WHERE tags.imageid = '53'";
         $result = $db->query($query);
         $row = $result->fetch_assoc();
         if (isset($row['filepath'])) {
