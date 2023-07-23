@@ -12,8 +12,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
 	$result = $db->query($query);
 	$row = $result->fetch_assoc();
 	if (isset($row['filepath'])) {
-		$filepath = $row['filepath'];
-		echo 'image path: ' . $filepath;
+		$path = $row['filepath'];
+		$path_parts = pathinfo($path);
+		echo 'image path: ' . $path;
+		echo 'filename: ' . $path_parts['basename'];
 	}
 	// $query = "DELETE images, tags
 	// 	FROM images 
