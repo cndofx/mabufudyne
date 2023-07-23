@@ -15,6 +15,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
     <body>
         <?php
         $imageid = $_SERVER['PATH_INFO'];
+        $imageid = str_replace('/', '', $imageid);
         $query = "SELECT filepath FROM images WHERE imageid = '$imageid'";
         $result = $db->query($query);
         $row = $result->fetch_assoc();
@@ -22,7 +23,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
             echo "<h1>Image ID: " . $imageid . "</h1>";
             echo '<img src="' . $row['filepath'] . '">';
         } else {
-            echo "<h1>Image ID " . $imageid . "is invalid." . "</h1>";
+            echo "<h1>Image ID " . $imageid . " is invalid." . "</h1>";
         }
         ?>
     </body>
