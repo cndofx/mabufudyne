@@ -35,7 +35,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <!-- <a href="/image.php/<?php //echo $row['imageid']; ?>"> -->
-                    <a href="/image.php?imageid=/<?php echo $row['imageid']; ?>">
+                    <a href="/image.php?imageid=<?php echo $row['imageid']; ?>">
                         <img src="/<?php echo $row['filepath']; ?>">
                     </a>
                     <?php
