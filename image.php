@@ -17,7 +17,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         <?php
         $imageid = $_SERVER['PATH_INFO'];
         $imageid = str_replace('/', '', $imageid);
-        $query = "SELECT images.filepath, tags.tag, tags.imageid 
+        $query = "SELECT images.filepath, tags.tag, images.imageid 
         FROM images
         LEFT JOIN tags ON images.imageid=tags.imageid
         WHERE tags.imageid = '$imageid'";
