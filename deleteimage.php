@@ -15,21 +15,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
 		$path = $row['filepath'];
 		$parts = pathinfo($path);
 		$deletedpath = $parts['dirname'] . '/deleted/' . $parts['basename'];
-		echo 'image path: ' . $path . "\n";
-		echo 'filename: ' . $parts['basename'] . "\n";
-		echo 'deleted path: ' . $deletedpath . "\n";
-		// rename($path, $deletedpath);
+		// echo 'image path: ' . $path . "\n";
+		// echo 'filename: ' . $parts['basename'] . "\n";
+		// echo 'deleted path: ' . $deletedpath . "\n";
+		rename($path, $deletedpath);
 	}
-	// $query = "DELETE images, tags
-	// 	FROM images 
-	// 	LEFT JOIN tags 
-	// 	ON images.imageid = tags.imageid
-	// 	WHERE images.imageid='$imageid'";
-	// $delete = $db->query($query);
-	// if ($delete) {
-	// 	echo 'image deleted';
-	// } else {
-	// 	echo 'image not deleted';
-	// }
+	$query = "DELETE images, tags
+		FROM images 
+		LEFT JOIN tags 
+		ON images.imageid = tags.imageid
+		WHERE images.imageid='$imageid'";
+	$delete = $db->query($query);
+	if ($delete) {
+		echo 'image deleted';
+	} else {
+		echo 'image not deleted';
+	}
 }
 ?>
