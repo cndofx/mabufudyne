@@ -37,6 +37,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
             }
             ?>
         </div>
-		<a href="deleteimage.php?=imageid<?php echo $imageid ?>"/><p>delete image</p></a>
+		<a href="deleteimage.php?imageid=<?php echo $imageid ?>"/><p>delete image</p></a>
     </body>
 <?php } ?>
