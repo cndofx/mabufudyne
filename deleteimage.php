@@ -9,7 +9,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
 	include '/home/mabufudy/db.php';
 	$imageid = $_GET['imageid'];
 	$query = "SELECT filepath FROM images WHERE imageid='$imageid'";
-	$row = $db->query($query);
+	$result = $db->query($query);
+	$row = $result->fetch_assoc();
 	if (isset($row['filepath'])) {
 		$filepath = $row['filepath'];
 		echo 'image path: ' . $filepath;
