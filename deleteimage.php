@@ -5,7 +5,7 @@ $query="DELETE images
 		FROM images 
 		LEFT JOIN tags 
 		ON images.imageid = tags.imageid
-		WHERE images.imageid='$imageid'"
+		WHERE images.imageid='$imageid'";
 $delete=$db->query($query);
 if($delete){
 	echo 'image deleted';
