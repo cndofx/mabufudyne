@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         $imageid = str_replace('/', '', $imageid);
         $query = "SELECT images.filepath, tags.tag, tags.imageid 
         FROM images
-        INNER JOIN tags ON images.imageid=tags.imageid
+        LEFT JOIN tags ON images.imageid=tags.imageid
         WHERE tags.imageid = '$imageid'";
         $result = $db->query($query);
         $row = $result->fetch_assoc();
