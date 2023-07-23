@@ -30,11 +30,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         <div class="wrapper">
             <div class="image-columns">
                 <?php
-                $query = "select filepath from images";
+                $query = "SELECT id, filepath FROM images";
                 $result = $db->query($query);
                 while ($row = $result->fetch_assoc()) {
                     ?>
-                    <img src="/<?php echo $row['filepath']; ?>">
+                    <a href="/image.php/<?php echo $row['id']; ?>">
+                        <img src="/<?php echo $row['filepath']; ?>">
+                    </a>
                     <?php
                 }
                 ?>
