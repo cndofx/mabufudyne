@@ -15,8 +15,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
     <body>
         <h1><a href="/secretgallery.php">go back</a></h1>
         <?php
-        $imageid = $_SERVER['PATH_INFO'];
-        $imageid = str_replace('/', '', $imageid);
+        // $imageid = $_SERVER['PATH_INFO'];
+        // $imageid = str_replace('/', '', $imageid);
+        $imageid = $_GET['imageid'];
         $query = "SELECT images.filepath, tags.tag, images.imageid 
         FROM images
         LEFT JOIN tags ON images.imageid=tags.imageid
@@ -26,12 +27,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         if (isset($row['filepath'])) {
             echo "<h1>Image ID: " . $imageid . "</h1>";
             echo '<img src="/' . $row['filepath'] . '">';
-			if (isset($row['tag'])){
-				echo $row['tag'];
-			}
-			while($row = $result->fetch_assoc()){
-				echo $row['tag'];
-			}
+            if (isset($row['tag'])) {
+                echo $row['tag'];
+            }
+            while ($row = $result->fetch_assoc()) {
+                echo $row['tag'];
+            }
         } else {
             echo "<h1>Image ID " . $imageid . " is invalid." . "</h1>";
         }
