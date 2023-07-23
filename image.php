@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
         $query = "SELECT images.filepath, tags.tag, images.imageid 
         FROM images
         LEFT JOIN tags ON images.imageid=tags.imageid
-        WHERE tags.imageid = '$imageid'";
+        WHERE images.imageid = '$imageid'";
         $result = $db->query($query);
         $row = $result->fetch_assoc();
         if (isset($row['filepath'])) {
