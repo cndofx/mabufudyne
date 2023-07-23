@@ -14,10 +14,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
 	if (isset($row['filepath'])) {
 		$path = $row['filepath'];
 		$parts = pathinfo($path);
-		$deletedpath = $parts['dirname'] . '\/deleted\/' . $parts['basename'];
-		echo 'image path: ' . $path . '\n';
-		echo 'filename: ' . $parts['basename'] . '\n';
-		echo 'deleted path: ' . $deletedpath . '\n';
+		$deletedpath = $parts['dirname'] . '/deleted/' . $parts['basename'];
+		echo 'image path: ' . $path . "\n";
+		echo 'filename: ' . $parts['basename'] . "\n";
+		echo 'deleted path: ' . $deletedpath . "\n";
 		// rename($path, $deletedpath);
 	}
 	// $query = "DELETE images, tags
