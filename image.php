@@ -13,6 +13,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
     </head>
 
     <body>
+        <h1><a href="/secretgallery.php">go back</a></h1>
         <?php
         $imageid = $_SERVER['PATH_INFO'];
         $imageid = str_replace('/', '', $imageid);
