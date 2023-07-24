@@ -9,7 +9,8 @@
 	}
 	foreach($tags_array as $tag){
 		$query = "INSERT into tags (imageid,tag) VALUES ('$imageid','$tag')";
-		if($query){
+		$addtags = $db->query($query);
+		if($addtags){
 			echo 'tag addition success!';
 		}
 		else{
