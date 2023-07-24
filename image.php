@@ -38,5 +38,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == FALSE) {
             ?>
         </div>
 		<a href="deleteimage.php?imageid=<?php echo $imageid ?>"/><p>delete image</p></a>
+		<form action="addtags.php" method="POST">
+			<input type="text" name="tagstoadd" placeholder="add tags, seperate by commas"/>
+			<input type="submit" name="submit" value="add tags"/>
+		</form>
     </body>
 <?php } ?>
