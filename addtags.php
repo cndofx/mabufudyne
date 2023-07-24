@@ -3,6 +3,7 @@
 	$tags=$_POST['tagstoadd'];
 	$tags_array = explode(",", $tags);
 	$imageid=$_GET['imageid'];
+	echo $imageid;
 	foreach($tags_array as $tag){
 		$tag = trim($tag);
 	}
